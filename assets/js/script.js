@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function() {
     const dropdownToggle = document.querySelectorAll('[data-dropdown-toggle]');
     dropdownToggle.forEach((toggle) => {
         toggle.addEventListener('click', function() {
@@ -6,4 +6,39 @@ document.addEventListener('DOMContentLoaded', function(){
             parent.classList.toggle('active');
         })
     })
+
+    //Feechar o dropdown ao clicar fora
+    document.addEventListener('click', function (e) {
+        dropdownToggle.forEach((toggle) => {
+            const parent = toggle.closest('.dropdown-item');
+            if(!parent.contains(e.target)) {
+                parent.classList.remove('active');
+            }
+        })
+    })
+})
+
+const searchToggle = document.getElementById('searchToggle');
+const searchOverlay = document.getElementById('searchOverlay');
+const closeSearch = document.getElementById('closeSearch');
+
+searchToggle.addEventListener('click', () => {
+    console.log(searchOverlay);
+    searchOverlay.style.display = 'flex';
+    setTimeout(() => {
+        searchOverlay.querySelector('.search-input').focus();
+    }, 100);
+})
+
+//Fechar o botão
+
+closeSearch.addEventListener('click', () => {
+    searchOverlay.style.display = 'none';
+})
+
+//Fechar com o ESC 
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        searchOverlay.style.display = 'none';
+    }
 })
