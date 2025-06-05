@@ -131,21 +131,23 @@ Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,
     <!-- Sobre -->
     <section class="section about" aria-label="sobre">
         <div class="container-sobre">
-            <figure class="about-banner">
-                <img src="assets/img/sobrenós-img.jpg" alt="sobre" classs="w=100 efeito">
-                <!--<img src="assets/img/sobrenós02-img.jpg" alt="sobre" classs="w=100 efeito">-->
-            </figure>
-            <div class="about-content">
-                <p class="section-subtitle">Sobre a Arte na Pele</p>
-                <h2 class="h2 text-center">A pele é sua, a atitude também!</h2>
-                <p class="section-text-1">
-                    Um estúdio de tatuagem moderno e acolhedor, especializado em arte
-                    personalizada na pele. Com profissionais experientes e foco na
-                    higiene, criatividade e atendimento individualizado, o espaço 
-                    oferece desde traços finos e delicados até trabalhos autorais marcantes.
-                </p>
-                <a href="#" class="btn">Saiba mais</a>
-            </div>
+        <figure class="about-banner">
+            <img src="assets/img/sobrenós-img.jpg" alt="sobre" class="efeito">
+        </figure>
+        <div class="about-content">
+            <p class="section-subtitle">Sobre a Arte na Pele</p>
+            <h2 class="h2 text-center">A pele é sua, a atitude também!</h2>
+            <p class="section-text-1">
+            Um estúdio de tatuagem moderno e acolhedor, especializado em arte
+            personalizada na pele. Com profissionais experientes e foco na
+            higiene, criatividade e atendimento individualizado, o espaço 
+            oferece desde traços finos e delicados até trabalhos autorais marcantes.
+            </p>
+            <a href="#" class="btn">Saiba mais</a>
+        </div>
+        <figure class="about-banner">
+            <img src="assets/img/sobrenós02-img.jpg" alt="sobre" class="efeito">
+        </figure>
         </div>
     </section>
 
@@ -303,24 +305,26 @@ Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,
             <span class="bg-animate2"></span>
 
             <div class="form-box login">
-                <h2 class="animation">Login</h2>
+                <h2 class="animation" style="--i: 0">Login</h2>
 
                 <form action="#">
-                    <div class="input-box animation">
+                    <div class="input-box animation" style="--i: 1">
                         <input type="text" required>
                         <label>Usuário</label>
                         <ion-icon name="person"></ion-icon>
                     </div>
 
-                    <div class="input-box animation">
+                    <div class="input-box animation" style="--i: 2">
                         <input type="password" required>
                         <label>Senha</label>
                         <ion-icon name="lock-closed"></ion-icon>
                     </div>
 
-                    <button type="submit" class="btn btn-login animation">Entrar</button>
+                    <button type="submit" class="btn btn-login animation" style="--i: 3">
+                        Entrar
+                    </button>
 
-                    <div class="logreg-link animation">
+                    <div class="logreg-link animation" style="--i: 4">
                         <p>
                             Não possui uma conta? 
                             <a href="#" class="register-link">Clique aqui!</a> 
@@ -331,8 +335,8 @@ Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,
 
             <!--Texto Login-->
             <div class="info-text login">
-                <h2>Bem-vindo de volta!</h2>
-                <p>Entre na sua conta para acessar nossos serviços exclusivos.</p>
+                <h2 class="animation" style="--i: 0">Bem-vindo de volta!</h2>
+                <p class="animation" style="--i: 1">Entre na sua conta para acessar nossos serviços exclusivos.</p>
             </div>
 
             <!--Cadastro-->
@@ -374,8 +378,6 @@ Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,
                 <h2>Bem-vindo de volta!</h2>
                 <p>Entre na sua conta para acessar nossos serviços exclusivos.</p>
             </div>
-
-
         </div>
     </section>
 

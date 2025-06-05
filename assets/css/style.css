@@ -629,8 +629,9 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0 auto;
-    background: var(--black-color);
-
+    /* Remova o background antigo */
+    background: transparent;
+  
     /* Abrir em tela cheia o Login*/
     position: fixed;
     top: 0;
@@ -640,20 +641,34 @@ body {
     display: none;
     z-index: 1000;
   }
-
+  
+  /* Fundo escuro translúcido + blur */
+  .container-login::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,10,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 0;
+    pointer-events: none;
+  }
+  
   .container-login.active {
     display: flex;
   }
-
+  
   .wrapper {
     position: relative;
     width: 750px;
     height: 450px;
-    background: transparent;
+    background: #181c25; /* Card sólido, ajuste a cor para o seu tema */
     border: 2px solid var(--darkblue-color);
     overflow: hidden;
+    border-radius: 12px;
+    z-index: 1; /* Garante que fique acima do fundo */
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
   }
-
+  
   .wrapper .form-box {
     position: absolute;
     top: 0;
@@ -664,13 +679,13 @@ body {
     justify-content: center;
     /*background: violet;*/
   }
-
+  
   .form-box h2 {
     font-size: var(--fs-2);
     color: var(--white-color);
     text-align: center;
   }
-
+  
   .form-box .input-box {
     position: relative;
     width: 100%;
@@ -838,6 +853,7 @@ body {
 
   .wrapper.active .form-box.login .animation {
     transform: translateX(-120%);
+    transition-delay: calc(0.1s * var(--i));
   }
 
   .wrapper .form-box.login .animation {
@@ -845,54 +861,110 @@ body {
     transform: translateX(0);
   }
 
-  /*Sobre*/
+  .wrapper .info-text.login .animation {
+    transform: translateX(0);
+    transition: 0.7s ease;
+  }
+
+  .wrapper.active .info-text.login .animation {
+    transform: translateX(120%);
+    transition-delay: calc(0.1s * var(--i));
+  }
+
+  /* Sobre */
   .container-sobre {
-    max-width: grid;
+    max-width: 1400px;
     margin: 0 auto;
-  }
-
-  .about .container-sobre {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    grid-template-columns: 2fr 3fr 2fr;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
   }
-
-  .section {
-    padding-block: var(--section-padding);
+  
+  @media (max-width: 1200px) {
+    .container-sobre {
+      grid-template-columns: 1fr 1.5fr 1fr;
+      gap: 24px;
+    }
+    .about-banner {
+      max-width: 260px;
+    }
+    .about .section-text-1 {
+      max-width: 400px;
+    }
   }
-
+  
+  @media (max-width: 900px) {
+    .container-sobre {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      text-align: center;
+    }
+    .about-banner {
+      margin: 0 auto 20px auto;
+      max-width: 100%;
+    }
+    .about .section-text-1 {
+      max-width: 90vw;
+    }
+  }
+  
   .about-banner {
-    margin-block-end: 50px;
-    position: relative;
-    max-width: 500px;
+    max-width: 420px;
     width: 100%;
     margin: 0 auto;
   }
-
+  
   .about-banner img {
+    width: 100%;
+    height: auto;
     filter: contrast(1.2) brightness(0.9);
     transition: filter 0.4s ease;
+    border-radius: 12px;
+    display: block;
   }
-
+  
   .about-banner img:hover {
     filter: contrast(1.4) brightness(1.1);
   }
-
-  .about .section-text-1 {
-    margin-block: 25px 15px;
-    text-align: justify;
+  
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-
+  
+  .about .section-text-1 {
+    margin: 25px 0 15px 0;
+    text-align: center;
+    max-width: 600px;
+  }
+  
   .about-content .section-subtitle {
     color: var(--darkblue-color);
     font-weight: var(--weight-semiBold);
     text-align: center;
     font-size: var(--fs-6);
   }
-
+  
   .about-content .btn {
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 180px;
+    margin: 40px auto 0 auto;
     max-width: 180px;
+    text-align: center;
+    display: block;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    line-height: normal;
+    box-sizing: border-box;
+    background: var(--darkblue-color, #222d3b);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .about-content .btn:hover {
+    background: #444f6c;
   }
